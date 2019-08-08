@@ -1,0 +1,52 @@
+{
+  "name": "readit",
+  "version": "1.0.0",
+  "description": "Master Electron Course Code",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron .",
+    "reset": "git reset --hard",
+    "make-cert": "electron-builder create-self-signed-cert -p stackacademy",
+    "build": "rimraf dist && electron-builder -wl",
+    "deploy": "rimraf dist && env-cmd electron-builder -wl -p \"onTagOrDraft\""
+  },
+  "repository": "https://github.com/estorgio/Readit",
+  "keywords": [
+    "Electron",
+    "Master Electron",
+    "demo"
+  ],
+  "author": "GitHub, Stackacademytv",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.0",
+    "electron-builder": "^21.2.0",
+    "env-cmd": "^9.0.3",
+    "nodemon": "^1.18.9",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3"
+  },
+  "build": {
+    "appId": "com.stackacademy.readit",
+    "directories": {
+      "buildResources": "./build"
+    },
+    "win": {
+      "publish": [
+        "github"
+      ],
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "stackacademy",
+      "certificateFile": "private/stackacademy.pfx"
+    },
+    "linux": {
+      "publish": [
+        "github"
+      ],
+      "category": "Network"
+    }
+  }
+}
