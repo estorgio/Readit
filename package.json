@@ -1,6 +1,6 @@
 {
   "name": "readit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Master Electron Course Code",
   "main": "main.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "watch": "nodemon --exec electron .",
     "reset": "git reset --hard",
     "make-cert": "electron-builder create-self-signed-cert -p stackacademy",
-    "build": "rimraf dist && electron-builder -wl",
-    "deploy": "rimraf dist && env-cmd electron-builder -wl -p \"onTagOrDraft\""
+    "build": "rimraf dist && electron-builder -w",
+    "deploy": "rimraf dist && env-cmd electron-builder -w -p \"onTagOrDraft\""
   },
   "repository": "https://github.com/estorgio/Readit",
   "keywords": [
@@ -27,6 +27,8 @@
     "rimraf": "^2.6.3"
   },
   "dependencies": {
+    "electron-log": "^3.0.7",
+    "electron-updater": "^4.1.2",
     "electron-window-state": "^5.0.3"
   },
   "build": {
